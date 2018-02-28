@@ -1,0 +1,53 @@
+<ion-header no-shadow>
+  <ion-navbar>
+
+    <ion-grid >
+      <ion-row>
+       <ion-col class="col1" col-6 col-md-6>
+        <button ion-button (click)="startApp()">INICIA SESION</button>
+       </ion-col>
+
+        <ion-col class="col2" col-6 col-md-6>
+         <button class="button" ion-button (click)="startProfile()">EMPEZAR AHORA</button>
+       </ion-col>
+     </ion-row>
+   </ion-grid>
+
+<!--  <ion-buttons end *ngIf="showSkip">
+      <button ion-button (click)="startApp()" color="primary">{{ 'TUTORIAL_SKIP_BUTTON' | translate}}</button>
+    </ion-buttons>-->
+  </ion-navbar>
+
+
+</ion-header>
+
+<ion-content no-bounce  style="background-image: url(assets/img/background.jpg);background-size:cover; ">
+
+
+  <ion-slides  pager="true" dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">
+    <ion-slide  *ngFor="let slide of slides">
+
+      <img [src]="slide.image" class="slide-image" />
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/img/atheletearena_diamante.png" class="slide-image" />
+      <h2 class="slide-title">{{ 'TUTORIAL_SLIDE4_TITLE' | translate }}</h2>
+      <button ion-button icon-end large clear (click)="startApp()">
+        {{ 'TUTORIAL_CONTINUE_BUTTON' | translate }}
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+
+
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+
+    <img src="assets/img/falda.png">
+  </ion-toolbar>
+</ion-footer>
