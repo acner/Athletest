@@ -10,6 +10,6 @@ The project is a demo, created by Elyon from Paraguay
 4. [i18n] Ionic Version
 
 ##credits
-Acner Pinazo
-Nestor Qui1ñonez
-Emilio Dominguez
+1. Acner Pinazo
+2. Nestor Quiñonez
+3. Emilio Dominguez
