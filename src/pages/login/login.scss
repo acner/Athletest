@@ -1,9 +1,28 @@
 page-login {
-.content-login{
-	padding-top: 80px;
-}
+	.content-login{
+		padding-top: 80px;
+	}
 	.toolbar-title-md {
 
 		text-align: center;
+	}
+	.input-login{
+		border:solid 2px #488AFF;    
+		margin: 20px 5px;
+		//outline:solid 10px silver;
+	}
+
+	.item-login{
+		border:none!important;    
+
+
+	}
+
+	.item-ios.item-label-stacked .text-input, .item-ios.item-label-floating .text-input {
+		margin-left: 16px;
+		
+	}
+	.item-label-floating .text-input-md {
+		margin-left: 16px;
 	}
 }

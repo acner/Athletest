@@ -21,7 +21,9 @@ export class LoginPage {
 
   // Our translated text strings
   private loginErrorString: string;
-  private valor:any;
+
+  private value:any;
+  private profile:any;
 
   constructor(public navCtrl: NavController,
     public user: User,
@@ -32,9 +34,43 @@ export class LoginPage {
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
     })
+    
 
-    this.valor = this.navParams.get('valor');
-    console.log('Valor Resultado: ',this.valor);
+    this.value = this.navParams.get('valor');
+
+    this.loadProfile();
+    console.log('Valor Resultado: ',this.value);
+  }
+
+  loadProfile(){
+
+    console.log('entro aca',this.value)
+    
+    switch (this.value) {
+      case 1:
+      this.profile = 'Aficionado'
+      console.log(this.profile);
+      break;
+      case 2:
+      this.profile = 'Atleta'
+      console.log(this.profile);
+      break;
+      case 3:
+      this.profile = 'Tienda - Negocio'
+      break;
+      case 4:
+      this.profile = 'Gimnasio'
+      break;
+      case 5:
+      this.profile = 'Salud'
+      break;
+      case 6:
+      this.profile = 'Fotografo'
+      break;
+      default:
+      this.profile =''
+      break;
+    }
   }
 
   // Attempt to login in through our User service

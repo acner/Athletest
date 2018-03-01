@@ -4,7 +4,7 @@
   "EMAIL": "Email",
   "LOGIN": "Iniciar sesión",
   "SIGNUP": "Registrarse",
-
+  "PERFIL": "Perfil",
   "TAB1_TITLE": "Items",
   "TAB2_TITLE": "Buscar",
   "TAB3_TITLE": "Ajustes",
@@ -32,7 +32,7 @@
 
   "LOGIN_TITLE": "Login/Register",
   "LOGIN_ERROR": "No se ha podido iniciar sesión. Por favor revisa la información de la cuenta e inténtalo de nuevo.",
-  "LOGIN_BUTTON": "Iniciar sesión",
+  "LOGIN_BUTTON": "Send",
   "SIGNUP_TITLE": "Registro",
   "SIGNUP_ERROR": "No se ha podido crear la cuenta. Por favor revisa la información de la cuenta e inténtalo de nuevo.",
   "SIGNUP_BUTTON": "Registrarse",
