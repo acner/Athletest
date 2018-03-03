@@ -37,18 +37,23 @@ page-tutorial {
   }
 
 
-  /*.swiper-pagination-bullet {
-    border-radius: 100%;
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    pointer-events: auto;
-  }*/
+/*Agregado*/
 
   .button{
     background: transparent;
 
   }
+
+  .button-ios {
+    background-color: transparent !important;
+
+  }
+  
+  .button-md {
+    background-color: transparent !important;
+
+  }
+
   .col1{
     border: solid gray;
     border-top: none;
@@ -74,11 +79,6 @@ page-tutorial {
     height: 12px;
     opacity:1;
   }
-
-
-
-
-
   .swiper-pagination-bullet-active {
     background: #F0BC03;
     width: 12px;

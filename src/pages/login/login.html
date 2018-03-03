@@ -12,9 +12,9 @@
     
 
     <ion-list>
-      <ion-item *ngIf="profile">
+      <ion-item  *ngIf="profile">
         <ion-label floating>{{ 'PERFIL' | translate }}</ion-label>
-        <ion-input class="input-login" type="text" [(ngModel)]="profile" name="profile"></ion-input>
+        <ion-input disabled class="input-login" type="text" [(ngModel)]="profile" name="profile"></ion-input>
       </ion-item>
 
 
