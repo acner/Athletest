@@ -6,6 +6,7 @@ import { Config, Nav, Platform } from 'ionic-angular';
 
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
+import { HeaderColor } from '@ionic-native/header-color';
 
 @Component({
   template: `<ion-menu [content]="content">
@@ -46,8 +47,10 @@ export class MyApp {
   { title: 'Search', component: 'SearchPage' }
   ]
 
-  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config,
+   private statusBar: StatusBar, private splashScreen: SplashScreen,private headerColor: HeaderColor) {
     platform.ready().then(() => {
+      this.headerColor.tint('#000000');
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
