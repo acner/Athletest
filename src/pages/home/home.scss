@@ -1,0 +1,88 @@
+page-home {
+.toolbar-background {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  .slide-zoom {
+    height: 100%;
+  }
+
+  .slide-title {
+    margin-top: 2.8rem;
+    color: white;
+    text-align: center;
+
+  }
+
+  .slide-image {
+    max-height: 40%;
+    max-width: 60%;
+    margin: 36px 0;
+  }
+
+  b {
+    font-weight: 500;
+  }
+
+  p {
+    padding: 0 40px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #60646B;
+
+    b {
+      color: #000000;
+    }
+  }
+
+
+/*Agregado*/
+
+  .button{
+    background: transparent;
+
+  }
+
+  .button-ios {
+    background-color: transparent !important;
+
+  }
+  
+  .button-md {
+    background-color: transparent !important;
+
+  }
+
+  .col1{
+    border: solid gray;
+    border-top: none;
+    border-left: none;
+    border-width: 1px;
+  }
+
+  .col2{
+    border: solid gray;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-width: 1px;
+  }
+
+  .grid {
+    padding: 0px 0px 0px 0px;
+  }
+
+  .swiper-pagination-bullet {
+    background: white;
+    width: 12px;
+    height: 12px;
+    opacity:1;
+  }
+  .swiper-pagination-bullet-active {
+    background: #F0BC03;
+    width: 12px;
+    height: 12px;
+    opacity:1;
+  }
+}

@@ -1,92 +1,49 @@
 import { Component, ViewChild } from '@angular/core';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
-import { TranslateService } from '@ngx-translate/core';
-import { Config, Nav, Platform } from 'ionic-angular';
-
-import { FirstRunPage } from '../pages/pages';
-import { Settings } from '../providers/providers';
+import { SplashScreen } from '@ionic-native/splash-screen';
 import { HeaderColor } from '@ionic-native/header-color';
 
+import { HomePage } from '../pages/home/home';
+import { ListPage } from '../pages/list/list';
+
+
 @Component({
-  template: `<ion-menu [content]="content">
-  <ion-header>
-  <ion-toolbar>
-  <ion-title>Pages</ion-title>
-  </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-  <ion-list>
-  <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-  {{p.title}}
-  </button>
-  </ion-list>
-  </ion-content>
-
-  </ion-menu>
-  <ion-nav #content [root]="rootPage"></ion-nav>`
+  templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = FirstRunPage;
-
   @ViewChild(Nav) nav: Nav;
 
-  pages: any[] = [
-  { title: 'Tutorial', component: 'TutorialPage' },
-  { title: 'Welcome', component: 'WelcomePage' },
-  { title: 'Profile', component: 'ProfilesPage' },
-  { title: 'Tabs', component: 'TabsPage' },
-  { title: 'Cards', component: 'CardsPage' },
-  { title: 'Content', component: 'ContentPage' },
-  { title: 'Login', component: 'LoginPage' },
-  { title: 'Signup', component: 'SignupPage' },
-  { title: 'Master Detail', component: 'ListMasterPage' },
-  { title: 'Menu', component: 'MenuPage' },
-  { title: 'Settings', component: 'SettingsPage' },
-  { title: 'Search', component: 'SearchPage' }
-  ]
+  rootPage: any = HomePage;
 
-  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config,
-   private statusBar: StatusBar, private splashScreen: SplashScreen,private headerColor: HeaderColor) {
-    platform.ready().then(() => {
-      this.headerColor.tint('#000000');
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-    this.initTranslate();
+  pages: Array<{title: string, component: any}>;
+
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private headerColor: HeaderColor) {
+    this.initializeApp();
+
+    // used for an example of ngFor and navigation
+    this.pages = [
+      { title: 'Home', component: HomePage },
+      { title: 'List', component: ListPage }
+    ];
+
   }
 
+  initializeApp() {
+    this.platform.ready().then(() => {
+      // let status bar overlay webview
+this.statusBar.overlaysWebView(false);
+
+// set status bar to white
+this.statusBar.backgroundColorByHexString('#000000');
 
 
 
 
 
-  initTranslate() {
-    // Set the default language for translation strings, and the current language.
-    this.translate.setDefaultLang('en');
-    const browserLang = this.translate.getBrowserLang();
-
-    if (browserLang) {
-      if (browserLang === 'zh') {
-        const browserCultureLang = this.translate.getBrowserCultureLang();
-
-        if (browserCultureLang.match(/-CN|CHS|Hans/i)) {
-          this.translate.use('zh-cmn-Hans');
-        } else if (browserCultureLang.match(/-TW|CHT|Hant/i)) {
-          this.translate.use('zh-cmn-Hant');
-        }
-      } else {
-        this.translate.use(this.translate.getBrowserLang());
-      }
-    } else {
-      this.translate.use('en'); // Set your language here
-    }
-
-    this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
-      this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
+      this.headerColor.tint('#000000');
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
     });
   }
 
