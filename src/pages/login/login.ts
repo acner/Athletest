@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController,NavParams } from 'ionic-angular';
-
+import { AngularFireAuth } from 'angularfire2/auth';
+import { ServiciosPage } from '../../providers/servicios';
+import { ListadoPage } from '../listado/listado';
 
 @Component({
   selector: 'page-login',
@@ -8,18 +10,22 @@ import { NavController, ToastController,NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  account: { email: string, password: string } = {
-    email: 'test@example.com',
-    password: 'test'
+  public data: { email: string, password: string,nombre:string,perfil:string } = {
+    email: '',
+    password: '',
+    nombre:'',
+    perfil:''
   };
 
 
   private value:any;
-  private perfil:any;
+
 
   constructor(public navCtrl: NavController,
     public toastCtrl: ToastController,
-    public navParams:NavParams) {
+    public navParams:NavParams,
+    public servicios:ServiciosPage,
+    public afAuth:AngularFireAuth) {
 
 
     
@@ -27,42 +33,62 @@ export class LoginPage {
     this.value = this.navParams.get('valor');
 
     this.loadPerfil();
-    console.log('Valor Resultado: ',this.value);
+
+
   }
 
   loadPerfil(){
-
-    console.log('entro aca',this.value)
     
     switch (this.value) {
       case 1:
-      this.perfil = 'Aficionado'
+      this.data.perfil = 'Aficionado'
+
   
       break;
       case 2:
-      this.perfil = 'Atleta'
+      this.data.perfil = 'Atleta'
   
       break;
       case 3:
-      this.perfil = 'Tienda - Negocio'
+      this.data.perfil = 'Tienda - Negocio'
       break;
       case 4:
-      this.perfil = 'Gimnasio'
+      this.data.perfil = 'Gimnasio'
       break;
       case 5:
-      this.perfil = 'Salud'
+      this.data.perfil = 'Salud'
       break;
       case 6:
-      this.perfil = 'Fotografo'
+      this.data.perfil = 'Fotografo'
       break;
       default:
-      this.perfil =''
+      this.data.perfil =''
       break;
     }
   }
 
-  // Attempt to login in through our User service
-  doLogin() {
-    alert('Presionaste el BOton');
+  loginRegistro(){
+
+    return this.afAuth.auth.createUserWithEmailAndPassword(this.data.email,this.data.password)
+    .then((usuario)=>{
+      this.afAuth.auth.currentUser.updateProfile({displayName:'',photoURL:''});
+    
+        this.servicios.add(this.data.email,this.data.password,this.data.perfil,
+          ()=>{
+            this.navCtrl.setRoot(ListadoPage)
+          }
+
+
+          )
+
+    }).catch((error)=>{
+      alert (error.message);
+      console.log(error);
+    });
+
+
+
+
   }
+
 }

@@ -8,25 +8,25 @@
 
 
 <ion-content class="content-login">
-  <form (submit)="doLogin()">
+  <form (submit)="loginRegistro()">
     
 
     <ion-list>
-      <ion-item  *ngIf="perfil">
-        <ion-label floating>Perfil</ion-label>
-        <ion-input disabled class="input-login" type="text" [(ngModel)]="perfil" name="perfil"></ion-input>
+      <ion-item  *ngIf="value">
+        <ion-label stacked>Perfil</ion-label>
+        <ion-input disabled class="input-login" type="text" [(ngModel)]="data.perfil" name="perfil"></ion-input>
       </ion-item>
 
 
 
       <ion-item class="item-login">
-        <ion-label floating>Email</ion-label>
-        <ion-input class="input-login" type="email" [(ngModel)]="account.email" name="email"></ion-input>
+        <ion-label stacked>Email</ion-label>
+        <ion-input class="input-login" type="email" [(ngModel)]="data.email" name="email"></ion-input>
       </ion-item>
 
     <ion-item class="item-login">
-      <ion-label floating>Password</ion-label>
-      <ion-input class="input-login" type="password" [(ngModel)]="account.password" name="password"></ion-input>
+      <ion-label stacked>Password</ion-label>
+      <ion-input class="input-login" type="password" [(ngModel)]="data.password" name="password"></ion-input>
     </ion-item>
 
 

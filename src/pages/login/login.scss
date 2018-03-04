@@ -1,0 +1,62 @@
+page-login{
+
+		.content-login{
+		padding-top: 80px;
+	}
+	.toolbar-title-md {
+
+		text-align: center;
+	}
+	.input-login{
+		border:solid 2px #488AFF;    
+		margin: 3px 5px;
+
+	}
+
+	.item-login{
+		border:none!important;    
+	}
+
+	.item-ios.item-label-stacked .text-input, .item-ios.item-label-floating .text-input {
+	  margin-left: 16px;
+		
+	}
+
+	.item-md.item-label-stacked .text-input, .item-md.item-label-floating .text-input {
+	  margin-left: 16px;
+		
+	}
+	
+
+
+
+	.item-label-floating .text-input-md {
+	  margin-left: 16px;
+	}
+
+	.list-ios .item-block .item-inner {
+   	  border-bottom: none;
+	}
+
+   .list-md .item-block .item-inner {
+   	  border-bottom: none;
+   	  box-shadow: none !important;
+	}
+	.button-ios {
+	    border-radius: 4px;
+	    height: 2.8em;
+	    font-size: 1.6rem;
+	    color: none;
+	    margin: 0.4rem 0.2rem;
+	    padding: 0 1em;
+	}
+	.button-md {
+	    border-radius: 4px;
+	    height: 2.8em;
+	    font-size: 1.6rem;
+	    color: none;
+	    margin: 0.4rem 0.2rem;
+	    padding: 0 1em;
+	}
+
+}
